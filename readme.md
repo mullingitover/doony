@@ -1,12 +1,36 @@
 # Doony
 
+<img src="http://doony.org/logosmall.png" alt="Doony logo" />
+
 Doony is a series of UI improvements on top of Jenkins. Install this to make
 your Jenkins user experience much better.
 
+Don't have admin access to your Jenkins instance? You can install it as
+a [Chrome extension](#chrome-extension)
+
+#### Good news!
+
+As of Jenkins version 1.570, some themes from Doony are getting merged back
+into the main project. Doony version **2.0** works with these updated themes.
+
+- If you are installing Doony on a Jenkins version **older** than 1.570, use
+  Doony version 1.6 (`git checkout 1.6`, in this repo)
+
+- If you are installing Doony on a Jenkins version **newer** than 1.570, use
+  the master version.
+
 ## Who's Using It
 
-Doony is in use at Twilio and Panic, Inc. Ping me to add your company name
-here.
+Doony was made at [Twilio]( https://www.twilio.com ). It's also been forked/starred by
+employees at:
+
+- Panic, Inc
+- the BBC
+- Instagram
+- Netflix
+- eBay
+- Groupon
+- Mail.ru
 
 ### Before
 
@@ -16,22 +40,24 @@ here.
 
 <img src="https://api.monosnap.com/image/download?id=aoqX9gzkqqEPa8IbKvEknmdug" />
 
-<img src="https://api.monosnap.com/image/download?id=8oNxdjkr9tcGIrnZs8KsJk3RE" />
+<img src="https://api.monosnap.com/image/download?id=12w3g9i5oU8uEBQSqV8okgwXJ" />
 
-<img src="https://api.monosnap.com/image/download?id=eH9vV2jF4UbsgLHm35ptE2k2E" />
+<img src="https://api.monosnap.com/image/download?id=YDWD8TzKBUhBk8j3MwmsXy7Mn" />
 
 ## Changes
 
 - There's a "Build Now" button on every build page. The button will redirect
   you to the console output of the new build. You can also easily cancel the
   current build.
+- The orbs are gone! Replaced with shiny circles and circular in-progress bars.
 - Click targets in the left hand menu are much bigger (they expand to fill the
   available UI)
 - The fonts are bigger. Way bigger.
 - "Jenkins" logo replaced with a custom color and the domain of your build server
 - More spacing in between list items.
 - Removes a lot of the useless icons
-- Replaces Courier New with Consolas
+- "Console Output" looks more like a console.
+- Replaces Courier New with Consolas.
 - Hover menus have a pointer cursor, indicating clickability
 - Text inputs are friendlier, bigger
 - Builds are zebra-striped, have more padding
@@ -50,7 +76,7 @@ names of your Jenkins servers (see [Match Patterns][patterns]).
 2. Run `git update-index --skip-worktree manifest.json` so you don't
    accidentally commit your `manifest.json` change.
 
-3. Open [chrome://extensions](chrome://extensions) and click "Load unpacked extension".
+3. Open [chrome://extensions](chrome://extensions). Check "Developer mode" if it's not already. Click "Load unpacked extension".
 
 4. Navigate to this repo and click "Open"
 
@@ -69,12 +95,17 @@ the default Jenkins styles.
    the CSS and Javascript URL's for this theme. You should find a place to host
    these, on a static server inside your cluster.
 
-    In development, you can use these URL's:
+    You can use these URLs:
 
-        - https://rawgithub.com/kevinburke/doony/master/doony.js
-        - https://rawgithub.com/kevinburke/doony/master/doony.css
+        # Or 2.1, depending on which version of Jenkins you are running.
+        - https://cdnjs.cloudflare.com/ajax/libs/doony/1.6/css/doony.min.css
+        - https://cdnjs.cloudflare.com/ajax/libs/doony/1.6/js/doony.min.js
 
-    You should not use those URL's for production, however.
+    Alternatively you can let Jenkins self host these files by putting them in `~/.jenkins/userContent`
+    With the default Jenkins settings the files you use will then be:
+
+        - http://localhost:8080/userContent/doony.css
+        - http://localhost:8080/userContent/doony.js
 
     Here's a screenshot of the settings page:
 
@@ -95,12 +126,6 @@ work with older versions but this is not guaranteed.
 - This is very much a work in progress, feel free to file bugs/issues and I'll
 make improvements as I can.
 
-- There's [a pull request against the Jenkins project][jenkins-pull] that
-should make skinning Jenkins much less brittle. Hopefully it will get merged
-into the mainline soon, then I can update this library.
-
-[jenkins-pull]: https://github.com/jenkinsci/jenkins/pull/960
-
 - This project is in no way intended to slam Jenkins developers. Jenkins is
 awesome, and unlike Travis you never get a blank screen. They are working
 within a series of vastly different constraints than I am. Consider:
@@ -108,4 +133,3 @@ within a series of vastly different constraints than I am. Consider:
     - they have to support every browser/platform/language
     - any change they make will make part of the userbase angry
     - every change has to be completely open-source friendly in every way
-

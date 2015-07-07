@@ -3,16 +3,17 @@
 
   "name": "Jenkins - Doony theme",
   "description": "A prettier Jenkins with better actions.",
-  "version": "1.1",
+  "version": "1.6",
 
   "content_scripts": [
     {
       "__comment__": "You need to add your own URL's here.",
       "matches": [
-        "https://jenkins.ci.cloudbees.com/*"
+        "https://jenkins.ci.cloudbees.com/*",
+        "http://localhost:8080/*"
       ],
-      "css": ["doony.css"],
-      "js": ["jquery-2.0.3.js", "doony.js"]
+      "css": ["doony.min.css"],
+      "js": ["src/vendor/jquery-2.0.3.js", "doony.js"]
     }
    ]
 }
